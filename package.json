@@ -1,0 +1,40 @@
+{
+  "name": "jurosforge",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "JurosForge — simulador de financiamento e empréstimo (Price × SAC) com CET real, amortização extra e comparador de cenários.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.json && vite build",
+    "preview": "vite preview",
+    "lint": "tsc -p tsconfig.json && tsc -p functions/tsconfig.json",
+    "check:functions": "tsc -p functions/tsconfig.json",
+    "test": "vitest run",
+    "pages:dev": "wrangler pages dev ./dist --d1 DB=jurosforge-db --compatibility-date=2024-09-23",
+    "deploy": "npm run build && wrangler pages deploy ./dist --project-name jurosforge",
+    "db:create": "wrangler d1 create jurosforge-db",
+    "db:schema": "wrangler d1 execute jurosforge-db --file=./schema.sql --remote",
+    "db:schema:local": "wrangler d1 execute jurosforge-db --file=./schema.sql --local"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.3.19",
+    "lucide-react": "^0.439.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zustand": "^4.5.5"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240909.0",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.45",
+    "tailwindcss": "^3.4.10",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.3",
+    "vitest": "^2.0.5"
+  }
+}

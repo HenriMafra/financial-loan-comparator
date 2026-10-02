@@ -1,0 +1,10 @@
+name = "jurosforge"
+compatibility_date = "2024-09-23"
+pages_build_output_dir = "dist"
+
+# ── Cloudflare D1 (banco) ─────────────────────────────────────────────────────
+# Crie com `npm run db:create` e cole o database_id retornado abaixo.
+[[d1_databases]]
+binding = "DB"
+database_name = "jurosforge-db"
+database_id = "74782984-d697-4012-8254-defc4e8b82b8"
